@@ -1,37 +1,64 @@
-# Dependências Node
-node_modules/
+# =============================================================
+#  .gitignore — Projeto: 09 Suporte Tecnico (Frontend Puro)
+#  Henrique Ulbricht — https://github.com/henriqueulbricht
+# =============================================================
 
-# Arquivos e diretórios de log
+# ----- Variáveis de Ambiente e Segredos (NUNCA commitar) -----
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+*.secret
+secrets.json
+credentials.json
+
+# ----- Dependências Node.js -----
+node_modules/
+package-lock.json
+yarn.lock
+
+# ----- Logs de Ferramentas -----
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-logs/
 *.log
+logs/
 
-# Arquivos de ambiente e variáveis sensíveis
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Arquivos de sistema operacional
-.DS_Store
-Thumbs.db
-
-# Diretórios de build/temporários
+# ----- Build / Diretórios Temporários -----
 dist/
 build/
+out/
 .cache/
 .parcel-cache/
-out/
+.turbo/
 coverage/
+tmp/
+temp/
 
-# IDE e Editores
+# ----- IDEs e Editores -----
 .vscode/
 .idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
+*.swp
 *.sw?
+
+# ----- Artefatos de Sistema Operacional -----
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# ----- Pastas de Agentes / Automação (IA) -----
+.agents/
+stitch/
+
+# ----- Versões Antigas -----
+old/
