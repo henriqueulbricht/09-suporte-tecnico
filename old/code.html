@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Painel de Chamados - Suporte Técnico</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#3c475a",
+                    "outline": "#75777d",
+                    "on-tertiary-fixed-variant": "#564427",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#eae7e9",
+                    "primary-fixed-dim": "#bcc7de",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "secondary-container": "#d0e1fb",
+                    "surface-variant": "#e4e2e3",
+                    "on-surface": "#1b1b1d",
+                    "on-secondary-container": "#54647a",
+                    "surface-bright": "#fbf8fa",
+                    "on-background": "#1b1b1d",
+                    "on-tertiary-fixed": "#271902",
+                    "primary-fixed": "#d8e3fb",
+                    "outline-variant": "#c5c6cd",
+                    "primary": "#091426",
+                    "primary-container": "#1e293b",
+                    "tertiary-fixed-dim": "#ddc39d",
+                    "secondary-fixed": "#d3e4fe",
+                    "surface-container-low": "#f5f3f4",
+                    "inverse-surface": "#303032",
+                    "surface-dim": "#dcd9db",
+                    "on-surface-variant": "#45474c",
+                    "on-primary-container": "#8590a6",
+                    "on-primary": "#ffffff",
+                    "secondary": "#505f76",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "surface": "#fbf8fa",
+                    "tertiary": "#1e1200",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed": "#fadfb8",
+                    "on-error-container": "#93000a",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#f0edef",
+                    "on-secondary-fixed": "#0b1c30",
+                    "background": "#fbf8fa",
+                    "on-tertiary-container": "#a38c6a",
+                    "surface-tint": "#545f73",
+                    "on-primary-fixed": "#111c2d",
+                    "inverse-primary": "#bcc7de",
+                    "surface-container-highest": "#e4e2e3",
+                    "inverse-on-surface": "#f3f0f2",
+                    "tertiary-container": "#35260c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "base": "4px",
+                    "xl": "32px",
+                    "md": "16px",
+                    "gutter": "24px",
+                    "sm": "8px",
+                    "margin-desktop": "32px",
+                    "lg": "24px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "headline-md-mobile": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "title-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md-mobile": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "title-lg": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        }
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen overflow-x-hidden">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-[280px] bg-primary text-on-primary border-r border-outline-variant hidden md:flex flex-col p-md z-40 shadow-none">
+<div class="flex items-center gap-sm mb-xl px-sm">
+<span class="material-symbols-outlined text-title-lg" data-icon="support_agent" style="font-variation-settings: 'FILL' 1;">support_agent</span>
+<div>
+<h1 class="text-headline-sm font-headline-sm text-on-primary">Suporte Tech</h1>
+<p class="text-label-sm text-on-primary/70">Painel de Controle</p>
+</div>
+</div>
+<button class="w-full bg-secondary-container text-on-secondary-container hover:bg-secondary-container/90 py-sm px-md rounded-lg font-label-md text-label-md flex items-center justify-center gap-sm mb-xl transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+            Novo Chamado
+        </button>
+<nav class="flex-1 space-y-xs">
+<a class="flex items-center gap-md px-md py-sm bg-secondary-container text-on-secondary-container rounded-lg font-label-md text-label-md active:scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+                Painel Geral
+            </a>
+<a class="flex items-center gap-md px-md py-sm text-on-primary/70 hover:bg-on-primary/10 rounded-lg font-label-md text-label-md hover:bg-on-primary/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="confirmation_number">confirmation_number</span>
+                Meus Chamados
+            </a>
+<a class="flex items-center gap-md px-md py-sm text-on-primary/70 hover:bg-on-primary/10 rounded-lg font-label-md text-label-md hover:bg-on-primary/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="analytics">analytics</span>
+                Relatórios
+            </a>
+<a class="flex items-center gap-md px-md py-sm text-on-primary/70 hover:bg-on-primary/10 rounded-lg font-label-md text-label-md hover:bg-on-primary/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+                Configurações
+            </a>
+</nav>
+<div class="mt-auto">
+<a class="flex items-center gap-md px-md py-sm text-on-primary/70 hover:bg-on-primary/10 rounded-lg font-label-md text-label-md hover:bg-on-primary/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="logout">logout</span>
+                Sair
+            </a>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="docked full-width top-0 bg-surface text-primary border-b border-outline-variant flex justify-between items-center h-16 px-gutter ml-0 md:ml-[280px] w-full md:w-[calc(100%-280px)] z-30 fixed">
+<div class="flex items-center gap-md">
+<button class="md:hidden p-sm text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h2 class="font-title-lg text-title-lg text-primary hidden sm:block">Portal de Chamados</h2>
+</div>
+<div class="flex-1 max-w-md mx-md">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-full py-2 pl-10 pr-4 text-body-sm text-on-surface outline-none transition-all" placeholder="Pesquisar chamados..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-sm text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors rounded-full active:opacity-80">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-sm text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors rounded-full active:opacity-80">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<div class="ml-sm w-8 h-8 rounded-full overflow-hidden border border-outline-variant bg-surface-container-highest cursor-pointer">
+<img alt="Foto do Usuário" class="w-full h-full object-cover" data-alt="A professional headshot of a technical support agent in a well-lit office setting. The agent is wearing a smart-casual headset and smiling slightly. The background features subtle blur of monitors displaying code and network diagrams. The overall lighting is bright and modern, conveying efficiency and expertise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn5sLvm0hzYvoN8Wo_MgAfwFaN5JVbeZrJ4GZC1Nyc4ms4Dsx0onSUQ6faojUtjWfc_Nd-fvAK3GRjZrS2M37A6mDv9QbbgKpY3Zcz0eMAQshUR1Wl1EELsDc2ROhjL4EUOh2tcCo68aZ0UbHz5Jaq--ePwAEl-3btcTP-Cykx1rvmseFLbUWVqs9B0uTyYqTTFdvEIXykdkz7Nr7D-oNYGt4prCraLyLGmpXEdDLKoZdK5wYOPBFnt7SVqHF1x3V8rKAU7CFIY3Pu"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-24 pb-xl px-margin-mobile md:px-margin-desktop ml-0 md:ml-[280px] min-h-screen">
+<!-- Summary Cards -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter mb-xl">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex items-center justify-between hover:border-primary/30 transition-colors group">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Chamados Abertos</p>
+<p class="font-display-lg text-display-lg text-on-surface group-hover:text-primary transition-colors">42</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex items-center justify-between hover:border-primary/30 transition-colors group">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Em Atendimento</p>
+<p class="font-display-lg text-display-lg text-on-surface group-hover:text-primary transition-colors">18</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">pending_actions</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex items-center justify-between hover:border-primary/30 transition-colors group">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Aguardando Peças</p>
+<p class="font-display-lg text-display-lg text-on-surface group-hover:text-primary transition-colors">05</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex items-center justify-between hover:border-primary/30 transition-colors group">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Concluídos Hoje</p>
+<p class="font-display-lg text-display-lg text-on-surface group-hover:text-primary transition-colors">12</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+</div>
+</div>
+</section>
+<!-- Filters -->
+<section class="mb-xl flex flex-wrap gap-sm">
+<button class="px-md py-2 rounded-full border border-primary bg-primary text-on-primary font-label-md text-label-md">
+                Todos
+            </button>
+<button class="px-md py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-low font-label-md text-label-md transition-colors">
+                Informática/TI
+            </button>
+<button class="px-md py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-low font-label-md text-label-md transition-colors">
+                Elétrica
+            </button>
+<button class="px-md py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-low font-label-md text-label-md transition-colors">
+                Predial/Civil
+            </button>
+<button class="px-md py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-low font-label-md text-label-md transition-colors">
+                Segurança Eletrônica
+            </button>
+<button class="px-md py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-low font-label-md text-label-md transition-colors">
+                Telecomunicações
+            </button>
+</section>
+<!-- Table -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+<div class="p-md border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
+<h3 class="font-title-lg text-title-lg text-on-surface">Chamados Recentes</h3>
+<button class="text-primary font-label-md text-label-md hover:underline flex items-center gap-xs">
+                    Ver todos <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant bg-surface-bright font-label-md text-label-md text-on-surface-variant">
+<th class="p-md font-medium">ID/Ticket</th>
+<th class="p-md font-medium">Assunto</th>
+<th class="p-md font-medium">Categoria</th>
+<th class="p-md font-medium">Prioridade</th>
+<th class="p-md font-medium">Status</th>
+<th class="p-md font-medium text-right">Ações</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm text-on-surface divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="p-md font-medium text-primary">#TK-102</td>
+<td class="p-md">Manutenção de Rede</td>
+<td class="p-md">
+<span class="inline-flex items-center px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-label-sm text-label-sm border border-secondary-fixed">
+                                    Informática/TI
+                                </span>
+</td>
+<td class="p-md">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<span class="text-error font-medium">Crítica</span>
+</div>
+</td>
+<td class="p-md">
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-primary-fixed-dim text-on-primary-fixed border border-primary-fixed">
+                                    Em Progresso
+                                </span>
+</td>
+<td class="p-md text-right">
+<button class="p-2 text-on-surface-variant hover:text-primary rounded-full hover:bg-surface-container-highest transition-colors" title="Visualizar">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary rounded-full hover:bg-surface-container-highest transition-colors" title="Atribuir">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="p-md font-medium text-primary">#TK-105</td>
+<td class="p-md">Reparo de Ar-condicionado</td>
+<td class="p-md">
+<span class="inline-flex items-center px-2 py-1 rounded-md bg-surface-variant text-on-surface-variant font-label-sm text-label-sm border border-outline-variant">
+                                    Predial/Civil
+                                </span>
+</td>
+<td class="p-md">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-outline"></div>
+<span class="text-on-surface-variant">Média</span>
+</div>
+</td>
+<td class="p-md">
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-tertiary-fixed-dim text-on-tertiary-fixed border border-tertiary-fixed">
+                                    Validando
+                                </span>
+</td>
+<td class="p-md text-right">
+<button class="p-2 text-on-surface-variant hover:text-primary rounded-full hover:bg-surface-container-highest transition-colors" title="Visualizar">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary rounded-full hover:bg-surface-container-highest transition-colors" title="Atribuir">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group border-l-4 border-l-tertiary-fixed">
+<td class="p-md font-medium text-primary">#TK-108</td>
+<td class="p-md">Falha no Nobreak</td>
+<td class="p-md">
+<span class="inline-flex items-center px-2 py-1 rounded-md bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm border border-tertiary-fixed-dim">
+                                    Elétrica
+                                </span>
+</td>
+<td class="p-md">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary-container"></div>
+<span class="text-tertiary-container font-medium">Alta</span>
+</div>
+</td>
+<td class="p-md">
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant">
+                                    Pendente
+                                </span>
+</td>
+<td class="p-md text-right">
+<button class="p-2 text-on-surface-variant hover:text-primary rounded-full hover:bg-surface-container-highest transition-colors" title="Visualizar">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary rounded-full hover:bg-surface-container-highest transition-colors" title="Atribuir">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-sm border-t border-outline-variant bg-surface-bright flex justify-center items-center gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<button class="p-1 rounded hover:bg-surface-container disabled:opacity-50"><span class="material-symbols-outlined">chevron_left</span></button>
+<span>Página 1 de 12</span>
+<button class="p-1 rounded hover:bg-surface-container"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</section>
+</main>
+</body></html>

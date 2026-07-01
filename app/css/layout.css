@@ -1,0 +1,208 @@
+/* ==========================================================================
+   Layout — Sidebar, Header, Main, Grid
+   ========================================================================== */
+
+/* Reset mínimo */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--text-body-md-size);
+  font-weight: var(--text-body-md-weight);
+  line-height: var(--text-body-md-line);
+  color: var(--color-on-background);
+  background-color: var(--color-background);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Sidebar
+   -------------------------------------------------------------------------- */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--sidebar-width);
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-md);
+  z-index: 40;
+  transition: transform var(--transition-normal);
+  overflow-y: auto;
+}
+
+/* Mobile: sidebar oculta por padrão */
+@media (max-width: 767px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  .sidebar.is-open {
+    transform: translateX(0);
+    box-shadow: var(--shadow-modal);
+  }
+}
+
+/* Overlay mobile */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 39;
+}
+.sidebar-overlay.is-visible {
+  display: block;
+}
+
+/* Cabeçalho do sidebar */
+.sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+  padding: 0 var(--space-sm);
+}
+
+.sidebar__brand-icon {
+  font-size: 1.5rem;
+  color: var(--color-on-primary);
+}
+
+.sidebar__brand-name {
+  font-size: var(--text-headline-sm-size);
+  font-weight: var(--text-headline-sm-weight);
+  line-height: var(--text-headline-sm-line);
+  color: var(--color-on-primary);
+}
+
+.sidebar__brand-subtitle {
+  font-size: var(--text-label-sm-size);
+  font-weight: var(--text-label-sm-weight);
+  line-height: var(--text-label-sm-line);
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Nav do sidebar */
+.sidebar__nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.sidebar__footer {
+  margin-top: auto;
+  padding-top: var(--space-md);
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: var(--header-height);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-outline-variant);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-gutter);
+  z-index: 30;
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .header {
+    left: var(--sidebar-width);
+  }
+}
+
+.header__left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-shrink: 0;
+}
+
+.header__title {
+  font-size: var(--text-title-lg-size);
+  font-weight: var(--text-title-lg-weight);
+  line-height: var(--text-title-lg-line);
+  color: var(--color-primary);
+  display: none;
+}
+
+@media (min-width: 480px) {
+  .header__title {
+    display: block;
+  }
+}
+
+.header__search {
+  flex: 1;
+  max-width: 28rem;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Main Content
+   -------------------------------------------------------------------------- */
+.main {
+  padding-top: calc(var(--header-height) + var(--space-lg));
+  padding-bottom: var(--space-xl);
+  padding-left: var(--space-margin-mobile);
+  padding-right: var(--space-margin-mobile);
+  min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+  .main {
+    margin-left: var(--sidebar-width);
+    padding-left: var(--space-margin-desktop);
+    padding-right: var(--space-margin-desktop);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Grid de Cards de Métricas
+   -------------------------------------------------------------------------- */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-gutter);
+  margin-bottom: var(--space-xl);
+}
+
+@media (min-width: 480px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .metrics-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Seções
+   -------------------------------------------------------------------------- */
+.section {
+  margin-bottom: var(--space-xl);
+}

@@ -1,0 +1,137 @@
+/* ==========================================================================
+   Design Tokens — Suporte Técnico
+   Mapeado de stitch/DESIGN.md
+   ========================================================================== */
+
+:root {
+  /* --- Paleta de Cores --- */
+  --color-primary:             #091426;
+  --color-on-primary:          #ffffff;
+  --color-primary-container:   #1e293b;
+  --color-on-primary-container:#8590a6;
+
+  --color-secondary:           #505f76;
+  --color-on-secondary:        #ffffff;
+  --color-secondary-container: #d0e1fb;
+  --color-on-secondary-container: #54647a;
+
+  --color-tertiary:            #1e1200;
+  --color-on-tertiary:         #ffffff;
+  --color-tertiary-container:  #35260c;
+  --color-on-tertiary-container: #a38c6a;
+
+  --color-surface:             #fbf8fa;
+  --color-surface-dim:         #dcd9db;
+  --color-surface-bright:      #fbf8fa;
+  --color-surface-lowest:      #ffffff;
+  --color-surface-low:         #f5f3f4;
+  --color-surface-container:   #f0edef;
+  --color-surface-high:        #eae7e9;
+  --color-surface-highest:     #e4e2e3;
+  --color-surface-variant:     #e4e2e3;
+
+  --color-on-surface:          #1b1b1d;
+  --color-on-surface-variant:  #45474c;
+  --color-inverse-surface:     #303032;
+  --color-inverse-on-surface:  #f3f0f2;
+
+  --color-outline:             #75777d;
+  --color-outline-variant:     #c5c6cd;
+
+  --color-primary-fixed:       #d8e3fb;
+  --color-primary-fixed-dim:   #bcc7de;
+  --color-on-primary-fixed:    #111c2d;
+
+  --color-secondary-fixed:     #d3e4fe;
+  --color-secondary-fixed-dim: #b7c8e1;
+  --color-on-secondary-fixed:  #0b1c30;
+
+  --color-tertiary-fixed:      #fadfb8;
+  --color-tertiary-fixed-dim:  #ddc39d;
+  --color-on-tertiary-fixed:   #271902;
+
+  --color-error:               #ba1a1a;
+  --color-on-error:            #ffffff;
+  --color-error-container:     #ffdad6;
+  --color-on-error-container:  #93000a;
+
+  --color-background:          #fbf8fa;
+  --color-on-background:       #1b1b1d;
+
+  /* Semânticas de status */
+  --color-status-open:         #d0e1fb;
+  --color-status-open-text:    #54647a;
+  --color-status-progress:     #bcc7de;
+  --color-status-progress-text:#111c2d;
+  --color-status-validating:   #ddc39d;
+  --color-status-validating-text: #271902;
+  --color-status-pending:      #eae7e9;
+  --color-status-pending-text: #45474c;
+
+  /* --- Tipografia --- */
+  --font-family:               'Inter', sans-serif;
+
+  --text-display-lg-size:      2rem;        /* 32px */
+  --text-display-lg-weight:    700;
+  --text-display-lg-line:      2.5rem;      /* 40px */
+  --text-display-lg-spacing:   -0.02em;
+
+  --text-headline-md-size:     1.5rem;      /* 24px */
+  --text-headline-md-weight:   600;
+  --text-headline-md-line:     2rem;        /* 32px */
+  --text-headline-md-spacing:  -0.01em;
+
+  --text-headline-sm-size:     1.25rem;     /* 20px */
+  --text-headline-sm-weight:   600;
+  --text-headline-sm-line:     1.75rem;     /* 28px */
+
+  --text-title-lg-size:        1.125rem;    /* 18px */
+  --text-title-lg-weight:      600;
+  --text-title-lg-line:        1.5rem;      /* 24px */
+
+  --text-body-md-size:         1rem;        /* 16px */
+  --text-body-md-weight:       400;
+  --text-body-md-line:         1.5rem;      /* 24px */
+
+  --text-body-sm-size:         0.875rem;    /* 14px */
+  --text-body-sm-weight:       400;
+  --text-body-sm-line:         1.25rem;     /* 20px */
+
+  --text-label-md-size:        0.875rem;    /* 14px */
+  --text-label-md-weight:      500;
+  --text-label-md-line:        1.25rem;     /* 20px */
+
+  --text-label-sm-size:        0.75rem;     /* 12px */
+  --text-label-sm-weight:      600;
+  --text-label-sm-line:        1rem;        /* 16px */
+  --text-label-sm-spacing:     0.05em;
+
+  /* --- Espaçamento (base 4px) --- */
+  --space-xs:   0.25rem;   /* 4px  */
+  --space-sm:   0.5rem;    /* 8px  */
+  --space-md:   1rem;      /* 16px */
+  --space-lg:   1.5rem;    /* 24px */
+  --space-xl:   2rem;      /* 32px */
+  --space-gutter: 1.5rem;  /* 24px */
+  --space-margin-mobile:  1rem;    /* 16px */
+  --space-margin-desktop: 2rem;    /* 32px */
+
+  /* --- Bordas --- */
+  --radius-sm:   0.125rem; /* 2px  */
+  --radius-md:   0.25rem;  /* 4px  */
+  --radius-lg:   0.5rem;   /* 8px  */
+  --radius-xl:   0.75rem;  /* 12px */
+  --radius-full: 9999px;
+
+  /* --- Sidebar --- */
+  --sidebar-width: 280px;
+  --header-height: 4rem; /* 64px */
+
+  /* --- Sombras --- */
+  --shadow-card:   0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-modal:  0 10px 25px rgba(0, 0, 0, 0.10);
+
+  /* --- Transições --- */
+  --transition-fast:   150ms ease;
+  --transition-normal: 250ms ease;
+}

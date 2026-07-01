@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portal de chamados de suporte técnico. Gerencie tickets de TI, elétrica, predial, segurança eletrônica e telecomunicações." />
+  <title>Painel de Chamados — Suporte Técnico</title>
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+
+  <!-- Overlay do sidebar (mobile) -->
+  <div id="sidebar-overlay" class="sidebar-overlay" aria-hidden="true"></div>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside id="sidebar" class="sidebar" role="navigation" aria-label="Menu principal">
+
+    <!-- Brand -->
+    <div class="sidebar__brand">
+      <span class="material-symbols-outlined sidebar__brand-icon"
+        style="font-variation-settings:'FILL' 1" aria-hidden="true">support_agent</span>
+      <div>
+        <h1 class="sidebar__brand-name">Suporte Tech</h1>
+        <p class="sidebar__brand-subtitle">Painel de Controle</p>
+      </div>
+    </div>
+
+    <!-- Novo Chamado -->
+    <button class="btn-new-ticket" id="btn-new-ticket" type="button">
+      <span class="material-symbols-outlined" aria-hidden="true">add</span>
+      Novo Chamado
+    </button>
+
+    <!-- Navegação -->
+    <nav class="sidebar__nav" aria-label="Seções do painel">
+      <a href="#" class="nav-item is-active" id="nav-dashboard" aria-current="page">
+        <span class="material-symbols-outlined" aria-hidden="true">dashboard</span>
+        Painel Geral
+      </a>
+      <a href="#" class="nav-item" id="nav-my-tickets">
+        <span class="material-symbols-outlined" aria-hidden="true">confirmation_number</span>
+        Meus Chamados
+      </a>
+      <a href="#" class="nav-item" id="nav-reports">
+        <span class="material-symbols-outlined" aria-hidden="true">analytics</span>
+        Relatórios
+      </a>
+      <a href="#" class="nav-item" id="nav-settings">
+        <span class="material-symbols-outlined" aria-hidden="true">settings</span>
+        Configurações
+      </a>
+    </nav>
+
+    <!-- Footer do sidebar -->
+    <footer class="sidebar__footer">
+      <a href="#" class="nav-item" id="nav-logout">
+        <span class="material-symbols-outlined" aria-hidden="true">logout</span>
+        Sair
+      </a>
+    </footer>
+
+  </aside>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" role="banner">
+
+    <!-- Esquerda: hamburger + título -->
+    <div class="header__left">
+      <button
+        id="btn-hamburger"
+        class="btn-icon btn-hamburger"
+        type="button"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="sidebar"
+      >
+        <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+      </button>
+      <h2 class="header__title">Portal de Chamados</h2>
+    </div>
+
+    <!-- Centro: pesquisa -->
+    <div class="header__search">
+      <div class="search-wrapper">
+        <span class="material-symbols-outlined search-icon" aria-hidden="true">search</span>
+        <input
+          id="search-input"
+          class="search-input"
+          type="search"
+          placeholder="Pesquisar chamados..."
+          aria-label="Pesquisar chamados"
+          autocomplete="off"
+        />
+      </div>
+    </div>
+
+    <!-- Direita: ações + avatar -->
+    <div class="header__right">
+      <button class="btn-icon" type="button" aria-label="Notificações" id="btn-notifications">
+        <span class="material-symbols-outlined" aria-hidden="true">notifications</span>
+      </button>
+      <button class="btn-icon" type="button" aria-label="Ajuda" id="btn-help">
+        <span class="material-symbols-outlined" aria-hidden="true">help_outline</span>
+      </button>
+      <div class="user-avatar" role="img" aria-label="Foto do usuário">
+        <img
+          src="https://ui-avatars.com/api/?name=Suporte+Tech&background=1e293b&color=fff&size=64&bold=true"
+          alt="Avatar do usuário"
+          width="32"
+          height="32"
+        />
+      </div>
+    </div>
+
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main" id="main-content">
+
+    <!-- PAGE: DASHBOARD -->
+    <div id="page-dashboard" class="page-view">
+      <div class="page-header">
+        <h2 class="page-header__title">Visão Geral</h2>
+        <p class="page-header__subtitle">Acompanhe o status e as métricas do suporte.</p>
+      </div>
+
+      <!-- Cards de métricas (renderizados via JS) -->
+      <section class="metrics-grid section" id="metrics-grid" aria-label="Resumo de chamados">
+        <!-- Preenchido por app.js -->
+      </section>
+
+      <!-- ESTATÍSTICAS (NOVO) -->
+      <section class="charts-grid section">
+        <div class="chart-card">
+          <div class="chart-card__header">
+            <h3 class="chart-card__title">Volume por Categoria</h3>
+          </div>
+          <div class="bar-chart">
+            <div class="bar-item">
+              <div class="bar-item__header">
+                <span class="bar-item__label">Informática/TI</span>
+                <span class="bar-item__value">45%</span>
+              </div>
+              <div class="bar-track"><div class="bar-fill bar-fill--blue" style="width: 45%;"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-item__header">
+                <span class="bar-item__label">Elétrica</span>
+                <span class="bar-item__value">25%</span>
+              </div>
+              <div class="bar-track"><div class="bar-fill bar-fill--amber" style="width: 25%;"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-item__header">
+                <span class="bar-item__label">Predial/Civil</span>
+                <span class="bar-item__value">15%</span>
+              </div>
+              <div class="bar-track"><div class="bar-fill bar-fill--green" style="width: 15%;"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-item__header">
+                <span class="bar-item__label">Segurança Eletrônica</span>
+                <span class="bar-item__value">10%</span>
+              </div>
+              <div class="bar-track"><div class="bar-fill bar-fill--red" style="width: 10%;"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-item__header">
+                <span class="bar-item__label">Telecomunicações</span>
+                <span class="bar-item__value">5%</span>
+              </div>
+              <div class="bar-track"><div class="bar-fill bar-fill--purple" style="width: 5%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-card__header">
+            <h3 class="chart-card__title">Status SLA</h3>
+          </div>
+          <div class="donut-wrapper">
+            <svg class="donut-svg" width="120" height="120" viewBox="0 0 120 120">
+              <!-- Background ring -->
+              <circle cx="60" cy="60" r="50" fill="none" stroke="var(--color-surface-high)" stroke-width="12" />
+              <!-- Dentro SLA (80%) -->
+              <circle cx="60" cy="60" r="50" fill="none" stroke="#10b981" stroke-width="12" stroke-dasharray="314" stroke-dashoffset="62.8" stroke-linecap="round" transform="rotate(-90 60 60)" />
+              <text x="60" y="55" text-anchor="middle" class="donut-label-value">80%</text>
+              <text x="60" y="75" text-anchor="middle" class="donut-label-sub">No Prazo</text>
+            </svg>
+            <ul class="donut-legend">
+              <li class="donut-legend-item">
+                <span class="donut-dot" style="background: #10b981;"></span>
+                No Prazo
+                <span class="donut-percent">80%</span>
+              </li>
+              <li class="donut-legend-item">
+                <span class="donut-dot" style="background: #ef4444;"></span>
+                Atrasado
+                <span class="donut-percent">20%</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Filtros por categoria (renderizados via JS) -->
+      <section class="filters section" id="filters-container" aria-label="Filtrar por categoria" role="group">
+        <!-- Preenchido por app.js -->
+      </section>
+
+      <!-- Tabela de Chamados -->
+      <section class="table-section" aria-label="Chamados recentes">
+        <div class="table-section__header">
+          <h3 class="table-section__title" id="tickets-table-label">Chamados Recentes</h3>
+          <a href="#" class="btn-see-all" id="btn-see-all" aria-label="Ver todos os chamados">
+            Ver todos
+            <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+          </a>
+        </div>
+        <div class="table-scroll">
+          <table class="data-table" aria-labelledby="tickets-table-label">
+            <thead>
+              <tr>
+                <th scope="col">ID/Ticket</th>
+                <th scope="col">Assunto</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Prioridade</th>
+                <th scope="col">Status</th>
+                <th scope="col" class="align-right">Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tickets-tbody">
+              <!-- Preenchido por filters.js -->
+            </tbody>
+          </table>
+        </div>
+        <!-- Paginação -->
+        <nav class="pagination" aria-label="Paginação da tabela">
+          <button id="btn-prev-page" class="pagination__btn" type="button" aria-label="Página anterior" disabled>
+            <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
+          </button>
+          <span id="page-label" aria-live="polite">Página 1 de 1</span>
+          <button id="btn-next-page" class="pagination__btn" type="button" aria-label="Próxima página">
+            <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
+          </button>
+        </nav>
+      </section>
+    </div> <!-- FIM DASHBOARD -->
+
+    <!-- PAGE: MEUS CHAMADOS -->
+    <div id="page-my-tickets" class="page-view" style="display: none;">
+      <div class="user-greeting">
+        <div class="user-greeting__icon">
+          <span class="material-symbols-outlined">waving_hand</span>
+        </div>
+        <div>
+          <h2 class="user-greeting__name">Olá, João!</h2>
+          <p class="user-greeting__role">Técnico de Suporte (Informática/TI)</p>
+        </div>
+      </div>
+      <div class="my-stats-grid">
+        <div class="my-stat-card">
+          <div class="my-stat-card__value">12</div>
+          <div class="my-stat-card__label">Chamados Atribuídos</div>
+        </div>
+        <div class="my-stat-card">
+          <div class="my-stat-card__value">4</div>
+          <div class="my-stat-card__label">Pausados/Aguardando</div>
+        </div>
+        <div class="my-stat-card">
+          <div class="my-stat-card__value">28</div>
+          <div class="my-stat-card__label">Resolvidos no Mês</div>
+        </div>
+      </div>
+      <section class="table-section">
+        <div class="table-section__header">
+          <h3 class="table-section__title">Fila de Trabalho</h3>
+        </div>
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th scope="col">ID/Ticket</th>
+                <th scope="col">Assunto</th>
+                <th scope="col">Prioridade</th>
+                <th scope="col">Status</th>
+                <th scope="col" class="align-right">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="ticket-id">#TK-135</td>
+                <td>Impressora sem rede</td>
+                <td><span class="priority"><span class="priority__dot priority__dot--high"></span><span class="priority__label--high">Alta</span></span></td>
+                <td><span class="status-badge status-badge--progress">Em Progresso</span></td>
+                <td class="align-right"><button class="btn-icon"><span class="material-symbols-outlined">edit</span></button></td>
+              </tr>
+              <tr>
+                <td class="ticket-id">#TK-142</td>
+                <td>Setup de novo notebook</td>
+                <td><span class="priority"><span class="priority__dot priority__dot--medium"></span><span class="priority__label--medium">Média</span></span></td>
+                <td><span class="status-badge status-badge--pending">Pendente</span></td>
+                <td class="align-right"><button class="btn-icon"><span class="material-symbols-outlined">edit</span></button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div> <!-- FIM MEUS CHAMADOS -->
+
+    <!-- PAGE: RELATÓRIOS -->
+    <div id="page-reports" class="page-view" style="display: none;">
+      <div class="page-header">
+        <h2 class="page-header__title">Relatórios e Desempenho</h2>
+        <p class="page-header__subtitle">Análise detalhada do suporte técnico</p>
+      </div>
+      <div class="reports-period">
+        <span class="reports-period__label">Período:</span>
+        <button class="period-btn">Hoje</button>
+        <button class="period-btn">7 Dias</button>
+        <button class="period-btn is-active">30 Dias</button>
+        <button class="period-btn">Este Ano</button>
+      </div>
+      <div class="reports-summary-grid">
+        <div class="summary-card">
+          <div class="summary-card__label">Chamados Fechados</div>
+          <div class="summary-card__value">482</div>
+          <div class="summary-card__detail"><span class="trend-up">+12%</span> vs mês anterior</div>
+        </div>
+        <div class="summary-card">
+          <div class="summary-card__label">TMA (Tempo Médio de Atendimento)</div>
+          <div class="summary-card__value">2h 15m</div>
+          <div class="summary-card__detail"><span class="trend-down">-15m</span> vs mês anterior</div>
+        </div>
+        <div class="summary-card">
+          <div class="summary-card__label">CSAT (Satisfação)</div>
+          <div class="summary-card__value">4.8/5</div>
+          <div class="summary-card__detail"><span class="trend-up">+0.2</span> vs mês anterior</div>
+        </div>
+        <div class="summary-card">
+          <div class="summary-card__label">SLA Cumprido</div>
+          <div class="summary-card__value">94%</div>
+          <div class="summary-card__detail"><span class="trend-up">+2%</span> vs meta (92%)</div>
+        </div>
+      </div>
+      <div class="report-table-card">
+        <div class="report-table-card__header">
+          <h3 class="report-table-card__title">Desempenho por Categoria</h3>
+        </div>
+        <div class="table-scroll">
+          <table class="report-table">
+            <thead>
+              <tr>
+                <th>Categoria</th>
+                <th class="align-right">Volume</th>
+                <th class="align-right">TMA</th>
+                <th class="align-right">SLA</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Informática/TI</td>
+                <td class="align-right">215</td>
+                <td class="align-right">1h 45m</td>
+                <td class="align-right"><span class="sla-indicator sla-indicator--ok">96% <span class="material-symbols-outlined" style="font-size: 14px;">check_circle</span></span></td>
+              </tr>
+              <tr>
+                <td>Elétrica</td>
+                <td class="align-right">120</td>
+                <td class="align-right">3h 20m</td>
+                <td class="align-right"><span class="sla-indicator sla-indicator--warn">88% <span class="material-symbols-outlined" style="font-size: 14px;">warning</span></span></td>
+              </tr>
+              <tr>
+                <td>Predial/Civil</td>
+                <td class="align-right">85</td>
+                <td class="align-right">5h 10m</td>
+                <td class="align-right"><span class="sla-indicator sla-indicator--crit">75% <span class="material-symbols-outlined" style="font-size: 14px;">error</span></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div> <!-- FIM RELATÓRIOS -->
+
+    <!-- PAGE: CONFIGURAÇÕES -->
+    <div id="page-settings" class="page-view" style="display: none;">
+      <div class="page-header">
+        <h2 class="page-header__title">Configurações</h2>
+        <p class="page-header__subtitle">Gerencie suas preferências e perfil</p>
+      </div>
+      <div class="settings-layout">
+        <div class="settings-card">
+          <div class="settings-card__header">
+            <span class="material-symbols-outlined settings-card__icon">person</span>
+            <h3 class="settings-card__title">Perfil do Usuário</h3>
+          </div>
+          <div class="settings-card__body">
+            <div class="settings-row settings-row--2">
+              <div class="form-group">
+                <label class="form-label">Nome Completo</label>
+                <input class="form-input" type="text" value="João Silva">
+              </div>
+              <div class="form-group">
+                <label class="form-label">E-mail</label>
+                <input class="form-input" type="email" value="joao.silva@empresa.com">
+              </div>
+            </div>
+            <div class="settings-row">
+              <div class="form-group">
+                <label class="form-label">Departamento</label>
+                <select class="form-select">
+                  <option>Informática/TI</option>
+                  <option>Manutenção Geral</option>
+                  <option>Telecom</option>
+                </select>
+              </div>
+            </div>
+            <div class="settings-actions">
+              <button class="btn-primary" onclick="alert('Configurações salvas!')">Salvar Alterações</button>
+            </div>
+          </div>
+        </div>
+        <div class="settings-card">
+          <div class="settings-card__header">
+            <span class="material-symbols-outlined settings-card__icon">notifications</span>
+            <h3 class="settings-card__title">Notificações</h3>
+          </div>
+          <div class="settings-card__body">
+            <div class="toggle-item">
+              <div class="toggle-item__info">
+                <div class="toggle-item__label">Notificações por E-mail</div>
+                <div class="toggle-item__desc">Receber e-mails ao ser atribuído a um chamado</div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="toggle-item">
+              <div class="toggle-item__info">
+                <div class="toggle-item__label">Notificações Push</div>
+                <div class="toggle-item__desc">Alertas no navegador para chamados críticos</div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="toggle-item">
+              <div class="toggle-item__info">
+                <div class="toggle-item__label">Som de alerta</div>
+                <div class="toggle-item__desc">Tocar som quando um chamado urgente for criado</div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- FIM CONFIGURAÇÕES -->
+
+  </main>
+
+  <!-- JS (ES Modules) -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
